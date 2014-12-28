@@ -6,8 +6,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
 import Adapters.TabPagerAdapter;
@@ -21,6 +19,11 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setUpTabs();
+
+    }
+
+    private void setUpTabs(){
         // Bind the tabs to the ViewPager
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
 

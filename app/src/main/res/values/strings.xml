@@ -2,7 +2,11 @@
 <resources>
 
     <string name="app_name">BubbleTeaApp</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="ingredients_title">What ingredients are used to make your tea?</string>
+    <string name="ingredients_used">We use the freshest ingredients</string>
+    <string name="ingredients_tapioca_balls">Tapioca balls are home made</string>
+    <string name="ingredients_tea_materials">Freshest leaves for making teas</string>
+    <string name="ingredients_comments">Comments? Feel free to send email to T-Dan!</string>
 
 </resources>
