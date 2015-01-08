@@ -2,98 +2,156 @@ package FragmentPages;
 
 import com.t_danbubbletea.bubbleteaapp.R;
 
-import java.util.ArrayList;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
+import android.os.AsyncTask;
 
-import com.etsy.android.grid.StaggeredGridView;
+import org.json.JSONException;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import Adapters.ImageViewAdapter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
 
-public class TeaFragment extends Fragment implements AbsListView.OnScrollListener,
-                                                     AbsListView.OnItemClickListener{
+import Cards.NewArrivalCards;
+import Cards.TeaCards;
+import Database.DatabaseConnector;
+import it.gmariotti.cardslib.library.view.CardListView;
+import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 
-    private StaggeredGridView stGridView;
-    private boolean mHasRequestedMore;
-    private ImageViewAdapter imageAdapter;
-    private ArrayList<String> mData;
+public class TeaFragment extends Fragment {
+
+    CardArrayAdapter cardArrayAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.tea_frag, container, false);
-        // init grid view and image adapters
-        stGridView = (StaggeredGridView) rootView.findViewById(R.id.grid_view);
-        imageAdapter = new ImageViewAdapter(getActivity(), android.R.layout.simple_list_item_1,
-                                            generateData());
-        if (mData == null) {
-            mData = generateData();
+
+        //cards = initNewArrivalCard(cards, teaAttributes);
+        ArrayList<Card> cards = new ArrayList<>();
+        cardArrayAdapter = new CardArrayAdapter(getActivity(), cards);
+        cardArrayAdapter.setInnerViewTypeCount(2);
+
+        CardListView listView = (CardListView) rootView.findViewById(R.id.card_list);
+
+        if (listView != null) {
+            listView.setAdapter(cardArrayAdapter);
         }
 
-        for (String data : mData) {
-            imageAdapter.add(data);
+        // get and parse the data
+        try {
+            new GetTeaInfo().execute(new DatabaseConnector()).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         }
-
-        stGridView.setAdapter(imageAdapter);
-        stGridView.setOnScrollListener(this);
-        stGridView.setOnItemClickListener(this);
 
         return rootView;
     }
 
-    @Override
-    public void onScrollStateChanged(final AbsListView view, final int scrollState) {
+    class GetTeaInfo extends AsyncTask<DatabaseConnector, Long, ArrayList<Card>> {
 
-    }
+       private ArrayList<HashMap<String, String>> newArrivalTeaData = new ArrayList<>();
+       private ArrayList<HashMap<String, String>> teaCardData = new ArrayList<>();
+       private ArrayList<Card> cards = new ArrayList<>();
 
-    @Override
-    public void onScroll(final AbsListView view, final int firstVisibleItem,
-                         final int visibleItemCount, final int totalItemCount) {
+        @Override
+        protected ArrayList<Card> doInBackground(DatabaseConnector... arg0) {
 
-        // our handling
-        if (!mHasRequestedMore) {
-            int lastInScreen = firstVisibleItem + visibleItemCount;
-            if (lastInScreen >= totalItemCount) {
-                mHasRequestedMore = true;
-                onLoadMoreItems();
+            JSONArray jsonArrayOfTeas = arg0[0].getAllTeas();
+
+            for (int i = 0; i < jsonArrayOfTeas.length(); i++) {
+                JSONObject jsonObject = null;
+
+                try {
+
+                    jsonObject = jsonArrayOfTeas.getJSONObject(i);
+
+                    if (jsonObject.getInt("new") == 1) {
+                        // remove backslash in URL
+                        String newTeaImageURL = (jsonObject.getString("imageURL")).replace("\\", "");
+                        String newTeaName = jsonObject.getString("name");
+                        String newTeaPrice = jsonObject.getString("teaprice");
+
+                        // init hashmap to contain parsed tea data
+                        HashMap<String, String> newTeaInfo = new HashMap<>();
+
+                        newTeaInfo.put("newTeaImage", newTeaImageURL);
+                        newTeaInfo.put("newTeaPrice", newTeaPrice);
+                        newTeaInfo.put("newTeaName", newTeaName);
+                        newArrivalTeaData.add(newTeaInfo);
+
+                    } else {
+
+                        String teaImage = (jsonObject.getString("imageURL").replace("\\", ""));
+                        String teaName = jsonObject.getString("name");
+                        String teaPrice = jsonObject.getString("teaprice");
+                        String teaCalories = jsonObject.getString("calories");
+                        String teaDesc = jsonObject.getString("desc");
+
+                        HashMap<String, String> teaInfo = new HashMap<>();
+
+                        teaInfo.put("teaImage", teaImage);
+                        teaInfo.put("teaName", teaName);
+                        teaInfo.put("teaPrice", teaPrice);
+                        teaInfo.put("teaCalories", teaCalories);
+                        teaInfo.put("teaDesc", teaDesc);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
+
+            cards = initNewArrivalCard(cards, newArrivalTeaData);
+            cards = initTeaCard(cards, teaCardData);
+
+            return cards;
         }
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-
-    }
-
-    private void onLoadMoreItems() {
-        final ArrayList<String> sampleData = generateData();
-        for (String data : sampleData) {
-            imageAdapter.add(data);
+        // after finishing getting all tea data and putting them into cards,
+        // set the cards into the adapter and notify the GUI that data has been added / updated
+        @Override
+        protected void onPostExecute(ArrayList<Card> cards){
+            cardArrayAdapter.addAll(cards);
+            cardArrayAdapter.setInnerViewTypeCount(2);
+            cardArrayAdapter.notifyDataSetChanged();
         }
-        // stash all the data in our backing store
-        mData.addAll(sampleData);
-        // notify the adapter that we can update now
-        imageAdapter.notifyDataSetChanged();
-        mHasRequestedMore = false;
+
     }
 
-    private ArrayList<String> generateData(){
-        ArrayList<String> data = new ArrayList<String>();
-        data.add("http://i62.tinypic.com/2iitkhx.jpg");
-        data.add("http://i61.tinypic.com/w0omeb.jpg");
-        data.add("http://i60.tinypic.com/w9iu1d.jpg");
-        data.add("http://i60.tinypic.com/iw6kh2.jpg");
-        data.add("http://i57.tinypic.com/ru08c8.jpg");
-        data.add("http://i60.tinypic.com/k12r10.jpg");
+    private ArrayList <Card> initNewArrivalCard(ArrayList<Card> cardList,
+                                                ArrayList<HashMap<String, String>> teaInfo) {
 
-        return data;
+        NewArrivalCards newArrivalCard = new NewArrivalCards(getActivity(), teaInfo);
+        newArrivalCard.init();
+        cardList.add(newArrivalCard);
+
+        return cardList;
     }
 
+    private ArrayList <Card> initTeaCard (ArrayList <Card> cardList,
+                                          ArrayList <HashMap<String, String>> teaDataInfo) {
+
+        String tea = "Noo";
+        String teaImage = "http://chuangmi.my-place.us/Tea_Pictures/assam.jpg";
+        String teaContent = "haha";
+        String teaCost = "Absurd";
+        String teaCaloriesCount = "Yo Yo Yo BRUH ";
+
+        TeaCards teaCard = new TeaCards(getActivity(),  tea, teaImage, teaContent,
+                                        teaCost, teaCaloriesCount);
+        teaCard.setType(1);
+
+        cardList.add(teaCard);
+
+        return cardList;
+    }
 }

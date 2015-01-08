@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="lightGreen">#C7DF78 </color>
-    <color name="palePurple">#C6B2E3</color>
-    <color name="brown">#935047</color>
-    <color name="darkGreen">#809340</color>
+    <color name="purple">#620093</color>
+    <color name="lightBrown">#ACA28C</color>
+    <color name="lightGrey">#CCDFD7</color>
+    <color name="lightYellow">#D4D453</color>
+    <color name="Red">#D40053</color>
 </resources>

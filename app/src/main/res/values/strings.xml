@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">BubbleTeaApp</string>
     <string name="action_settings">Settings</string>
     <string name="ingredients_title">What ingredients are used to make your tea?</string>
-    <string name="ingredients_used">We use the freshest ingredients</string>
-    <string name="ingredients_tapioca_balls">Tapioca balls are home made</string>
-    <string name="ingredients_tea_materials">Freshest leaves for making teas</string>
-    <string name="ingredients_comments">Comments? Feel free to send email to T-Dan!</string>
-
+    <string name="ingredients_used">We use the freshest milk</string>
+    <string name="ingredients_cow">Milked from the healthiest cow</string>
+    <string name="ingredients_tapioca_balls">We use the finest flowers</string>
+    <string name="ingredients_tapioca_balls_pic"> To make the finest tapioca balls</string>
+    <string name= "ingredients_tea_leaves">We pick the freshest leaves from the best places</string>
+    <string name="Conclusion">Rest assure that your tea is made with passion and love!</string>
+    <string name="Phone">Phone Number:503123456</string>
+    <string name="Address">Address:101 NW 32nd Street Portland Oregon</string>
+    <string name="Hours">Hours of Operation:9am-5pm</string>
 </resources>

@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
+import android.content.pm.ActivityInfo;
 
 import com.astuetz.PagerSlidingTabStrip;
 import Adapters.TabPagerAdapter;
@@ -18,6 +19,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // make screen orientation always portrait
         setContentView(R.layout.activity_main);
         setUpTabs();
 
@@ -61,4 +63,6 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

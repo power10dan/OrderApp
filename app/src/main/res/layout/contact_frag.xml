@@ -1,16 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.flavienlaurent.discrollview.lib.DiscrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:discrollve="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/brown" >
+    android:layout_height="match_parent">
 
-    <TextView android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Design Games Screen"
-        android:textSize="20dp"
-        android:layout_centerInParent="true"/>
+    <com.flavienlaurent.discrollview.lib.DiscrollViewContent
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    >
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            discrollve:discrollve_scaleX="true"
+            discrollve:discrollve_scaleY="true"
+            android:src="@drawable/phone_icon"
+         />
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:textSize="42sp"
+            discrollve:discrollve_alpha="true"
+            discrollve:discrollve_translation="fromBottom"
+            android:text="@string/Phone"
+            android:background="@color/lightGrey"
+        />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:textSize="42sp"
+            discrollve:discrollve_alpha="true"
+            discrollve:discrollve_translation="fromBottom"
+            android:text="@string/Address"
+            android:background="@color/lightGreen"
+         />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:textSize="42sp"
+            discrollve:discrollve_alpha="true"
+            discrollve:discrollve_translation="fromBottom"
+            android:text="@string/Hours"
+            android:background="@color/lightGrey"
+         />
+
+    </com.flavienlaurent.discrollview.lib.DiscrollViewContent>
+
+</com.flavienlaurent.discrollview.lib.DiscrollView>

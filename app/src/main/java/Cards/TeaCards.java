@@ -1,0 +1,151 @@
+package Cards;
+
+import android.content.Context;
+import android.view.ViewGroup;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.view.Gravity;
+
+import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.internal.CardHeader;
+import it.gmariotti.cardslib.library.internal.CardThumbnail;
+
+import com.squareup.picasso.Picasso;
+import com.t_danbubbletea.bubbleteaapp.R;
+
+public class TeaCards extends Card {
+
+    // tea card variables.
+    private String teaName;
+    private String teaImageURL;
+    private String teaDescription;
+    private String teaPrice;
+    private String teaCalories;
+
+    public TeaCards(Context context, String tea, String teaImage, String teaContent,
+                    String teaCost, String teaCaloriesCount) {
+
+        super(context);
+
+        teaName = tea;
+        teaImageURL = teaImage;
+        teaDescription = teaContent;
+        teaPrice = teaCost;
+        teaCalories = teaCaloriesCount;
+
+        init(teaName, teaImageURL, teaDescription, teaPrice, teaCalories);
+    }
+
+    public TeaCards(Context context, int layout, String tea, String teaImage, String teaContent,
+                    String teaCost, String teaCaloriesCount) {
+
+        super(context, layout);
+
+        teaName = tea;
+        teaImageURL = teaImage;
+        teaDescription = teaContent;
+        teaPrice = teaCost;
+        teaCalories = teaCaloriesCount;
+
+        init(teaName, teaImageURL, teaDescription, teaPrice, teaCalories);
+    }
+
+    private void init(String teaTitle, String teaImageSource, String teaDesc, String teaCost,
+                      String teaCal) {
+
+        TeaCardInnerText tInnerText = new TeaCardInnerText(getContext(),
+                                          R.layout.carddemo_extras_googlenowbirth_inner_header);
+
+        tInnerText.setButtonExpandVisible(true);
+        tInnerText.titleOfCard = teaTitle;
+        tInnerText.subTitleOfCard = "Tea Facts";
+        tInnerText.teaPrice = teaCost;
+        tInnerText.teaIngredients = teaDesc;
+        tInnerText.teaCalories = teaCal;
+        addCardHeader(tInnerText);
+
+        //Set clickListener
+        setOnClickListener(new OnCardClickListener() {
+            @Override
+            public void onClick(Card card, View view) {
+                Toast.makeText(getContext(), "Click Listener card", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        //Add Thumbnail
+        TeaCardThumbnail thumbnail = new TeaCardThumbnail(getContext(), teaImageSource);
+        //You need to set true to use an external library
+        thumbnail.setExternalUsage(true);
+        addCardThumbnail(thumbnail);
+    }
+
+    @Override
+    public void setupInnerViewElements(ViewGroup parent, View view) {
+
+        TextView title = (TextView) view.findViewById(R.id.card_main_inner_simple_title);
+        title.setText("Click me for more details");
+        title.setTextColor(mContext.getResources().getColor(R.color.lightBrown));
+        title.setGravity(Gravity.CENTER_VERTICAL);
+
+    }
+
+
+    @Override
+    public int getType() {
+        //Very important with different inner layouts
+        return 0;
+    }
+
+}
+    class TeaCardThumbnail extends CardThumbnail {
+
+        String teaThumb;
+        public TeaCardThumbnail(Context context, String teaImageSource) {
+            super(context);
+            teaThumb = teaImageSource;
+        }
+
+        @Override
+        public void setupInnerViewElements(ViewGroup parent, View viewImage) {
+
+            Picasso.with(getContext()).load(teaThumb).into((ImageView) viewImage);
+
+            viewImage.getLayoutParams().width = 250;
+            viewImage.getLayoutParams().height = 250;
+
+        }
+
+    }
+
+    class TeaCardInnerText extends CardHeader {
+
+        String titleOfCard;
+        String subTitleOfCard;
+        String teaIngredients;
+        String teaCalories;
+        String teaPrice;
+
+        public TeaCardInnerText(Context context, int innerLayout) {
+            super(context, innerLayout);
+        }
+
+        @Override
+        public void setupInnerViewElements(ViewGroup parent, View view) {
+
+            TextView title = (TextView) view.findViewById(R.id.text_extras_birth1);
+            TextView subTitle = (TextView) view.findViewById(R.id.section_layout);
+            TextView calories = (TextView) view.findViewById(R.id.calories_layout);
+            TextView ingredients = (TextView) view.findViewById(R.id.ingredients_layout);
+            TextView price = (TextView)view.findViewById(R.id.price);
+
+            title.setText(titleOfCard);
+            subTitle.setText(subTitleOfCard);
+            calories.setText(teaPrice);
+            ingredients.setText(teaIngredients);
+            price.setText(teaPrice);
+
+        }
+
+    }

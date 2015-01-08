@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    style="@style/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+>
+    <!-- This is the base Inner View inside a CardHeader.
+         You can customize it with your layout xml file and your CardHeader.
+         You can popolate your element with CardHeader#setupInnerViewElements() method -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_extras_birth1"
+        android:textSize="22sp"
+        android:layout_marginLeft="12dp"
+        android:textColor="#BBB"
+        android:lines="2"
+    />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/section_layout"
+        android:textSize="18sp"
+        android:layout_marginLeft="12dp"
+        android:textColor="#BBB"
+        android:lines="1"
+    />
+
+    <View
+        android:layout_width="320dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+    />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/calories_layout"
+        android:textSize="18sp"
+        android:layout_marginLeft="12dp"
+        android:textColor="#BBB"
+        android:lines="1"
+    />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ingredients_layout"
+        android:textSize="18sp"
+        android:layout_marginLeft="12dp"
+        android:textColor="#BBB"
+        android:lines="3"
+    />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/price"
+        android:textSize="18sp"
+        android:layout_marginLeft="12dp"
+        android:textColor="#BBB"
+        android:lines="3"
+    />
+
+</LinearLayout>
+
