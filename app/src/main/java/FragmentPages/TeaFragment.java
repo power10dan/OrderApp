@@ -178,24 +178,11 @@ public class TeaFragment extends Fragment {
 
             TeaCards teaCard = new TeaCards(getActivity(), tea, teaImage, teaContent,
                     teaCost, teaCaloriesCount);
-            teaCard.setType(1);
+            teaCard.setType(1); // important for different inner layout listview
             cardList.add(teaCard);
         }
 
         return cardList;
     }
 
-    /*
-    * Custom Card section
-    */
-    class TeaSections extends CardSection {
-
-        public CharSequence mButtonTxt;
-
-        public TeaSections(int firstPosition, CharSequence title, CharSequence buttonText) {
-            super(firstPosition, title);
-            mButtonTxt = buttonText;
-        }
-
-    }
 }

@@ -55,8 +55,7 @@ public class TeaCards extends Card {
     private void init(String teaTitle, String teaImageSource, String teaDesc, String teaCost,
                       String teaCal) {
 
-        TeaCardInnerText tInnerText = new TeaCardInnerText(getContext(),
-                                          R.layout.carddemo_extras_googlenowbirth_inner_header);
+        TeaCardInnerText tInnerText = new TeaCardInnerText(getContext(),R.layout.tea_frag_card_layout);
 
         tInnerText.setButtonExpandVisible(true);
         tInnerText.titleOfCard = teaTitle;
