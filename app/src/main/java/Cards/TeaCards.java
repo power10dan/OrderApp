@@ -64,6 +64,8 @@ public class TeaCards extends Card {
         tInnerText.teaPrice = teaCost;
         tInnerText.teaIngredients = teaDesc;
         tInnerText.teaCalories = teaCal;
+        tInnerText.mTeaImageURL = teaImageSource;
+        tInnerText.setButtonExpandVisible(false);
         addCardHeader(tInnerText);
 
         //Set clickListener
@@ -73,12 +75,6 @@ public class TeaCards extends Card {
                 Toast.makeText(getContext(), "Click Listener card", Toast.LENGTH_LONG).show();
             }
         });
-
-        //Add Thumbnail
-        TeaCardThumbnail thumbnail = new TeaCardThumbnail(getContext(), teaImageSource);
-        //You need to set true to use an external library
-        thumbnail.setExternalUsage(true);
-        addCardThumbnail(thumbnail);
     }
 
     @Override
@@ -99,25 +95,6 @@ public class TeaCards extends Card {
     }
 
 }
-    class TeaCardThumbnail extends CardThumbnail {
-
-        String teaThumb;
-        public TeaCardThumbnail(Context context, String teaImageSource) {
-            super(context);
-            teaThumb = teaImageSource;
-        }
-
-        @Override
-        public void setupInnerViewElements(ViewGroup parent, View viewImage) {
-
-            Picasso.with(getContext()).load(teaThumb).into((ImageView) viewImage);
-
-            viewImage.getLayoutParams().width = 250;
-            viewImage.getLayoutParams().height = 250;
-
-        }
-
-    }
 
     class TeaCardInnerText extends CardHeader {
 
@@ -126,6 +103,7 @@ public class TeaCards extends Card {
         String teaIngredients;
         String teaCalories;
         String teaPrice;
+        String mTeaImageURL;
 
         public TeaCardInnerText(Context context, int innerLayout) {
             super(context, innerLayout);
@@ -134,17 +112,19 @@ public class TeaCards extends Card {
         @Override
         public void setupInnerViewElements(ViewGroup parent, View view) {
 
-            TextView title = (TextView) view.findViewById(R.id.text_extras_birth1);
+            ImageView viewImage = (ImageView)view.findViewById(R.id.card_thumbnail_image);
+            TextView title = (TextView) view.findViewById(R.id.title);
             TextView subTitle = (TextView) view.findViewById(R.id.section_layout);
             TextView calories = (TextView) view.findViewById(R.id.calories_layout);
             TextView ingredients = (TextView) view.findViewById(R.id.ingredients_layout);
             TextView price = (TextView)view.findViewById(R.id.price);
 
+            Picasso.with(getContext()).load(mTeaImageURL).into(viewImage);
             title.setText(titleOfCard);
             subTitle.setText(subTitleOfCard);
-            calories.setText(teaPrice);
-            ingredients.setText(teaIngredients);
-            price.setText(teaPrice);
+            calories.setText("Calories: "+ teaCalories);
+            ingredients.setText("Gluten Free");
+            price.setText("Price: $" + teaPrice);
 
         }
 

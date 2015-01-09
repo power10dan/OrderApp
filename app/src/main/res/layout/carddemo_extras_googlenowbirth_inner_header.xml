@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    style="@style/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center_vertical"
 >
-    <!-- This is the base Inner View inside a CardHeader.
-         You can customize it with your layout xml file and your CardHeader.
-         You can popolate your element with CardHeader#setupInnerViewElements() method -->
+
+    <ImageView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/card_thumbnail_image"
+        android:layout_width="290dp"
+        android:layout_height="290dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+    />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/text_extras_birth1"
-        android:textSize="22sp"
-        android:layout_marginLeft="12dp"
+        android:id="@+id/title"
+        android:textSize="32dp"
+        android:layout_marginLeft="9dp"
         android:textColor="#BBB"
-        android:lines="2"
+        android:lines="1"
+        android:layout_toLeftOf= "@id/card_thumbnail_image"
     />
 
     <TextView
@@ -29,10 +35,15 @@
         android:layout_marginLeft="12dp"
         android:textColor="#BBB"
         android:lines="1"
+        android:layout_below="@id/title"
+        android:layout_toRightOf= "@id/card_thumbnail_image"
+        android:layout_alignParentLeft="true"
     />
 
     <View
-        android:layout_width="320dp"
+        android:id="@+id/divider"
+        android:layout_below="@id/section_layout"
+        android:layout_width="250dp"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
     />
@@ -40,6 +51,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/divider"
         android:id="@+id/calories_layout"
         android:textSize="18sp"
         android:layout_marginLeft="12dp"
@@ -53,8 +65,11 @@
         android:id="@+id/ingredients_layout"
         android:textSize="18sp"
         android:layout_marginLeft="12dp"
+        android:layout_below="@id/calories_layout"
+        android:paddingRight="16dp"
+        android:layout_alignParentLeft = "true"
         android:textColor="#BBB"
-        android:lines="3"
+        android:lines="2"
     />
 
     <TextView
@@ -62,10 +77,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/price"
         android:textSize="18sp"
+        android:layout_below="@id/ingredients_layout"
         android:layout_marginLeft="12dp"
         android:textColor="#BBB"
-        android:lines="3"
+        android:layout_alignParentLeft = "true"
+        android:lines="2"
     />
 
-</LinearLayout>
+</RelativeLayout>
 

@@ -16,6 +16,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
+import java.util.List;
 
 import Cards.NewArrivalCards;
 import Cards.TeaCards;
@@ -23,6 +24,8 @@ import Database.DatabaseConnector;
 import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
+import it.gmariotti.cardslib.library.prototypes.CardSection;
+import it.gmariotti.cardslib.library.prototypes.SectionedCardAdapter;
 
 public class TeaFragment extends Fragment {
 
@@ -34,7 +37,6 @@ public class TeaFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.tea_frag, container, false);
 
-        //cards = initNewArrivalCard(cards, teaAttributes);
         ArrayList<Card> cards = new ArrayList<>();
         cardArrayAdapter = new CardArrayAdapter(getActivity(), cards);
         cardArrayAdapter.setInnerViewTypeCount(2);
@@ -104,6 +106,8 @@ public class TeaFragment extends Fragment {
                         teaInfo.put("teaPrice", teaPrice);
                         teaInfo.put("teaCalories", teaCalories);
                         teaInfo.put("teaDesc", teaDesc);
+
+                        teaCardData.add(teaInfo);
                     }
 
                 } catch (JSONException e) {
@@ -114,6 +118,7 @@ public class TeaFragment extends Fragment {
             cards = initNewArrivalCard(cards, newArrivalTeaData);
             cards = initTeaCard(cards, teaCardData);
 
+
             return cards;
         }
         // after finishing getting all tea data and putting them into cards,
@@ -121,7 +126,6 @@ public class TeaFragment extends Fragment {
         @Override
         protected void onPostExecute(ArrayList<Card> cards){
             cardArrayAdapter.addAll(cards);
-            cardArrayAdapter.setInnerViewTypeCount(2);
             cardArrayAdapter.notifyDataSetChanged();
         }
 
@@ -140,18 +144,58 @@ public class TeaFragment extends Fragment {
     private ArrayList <Card> initTeaCard (ArrayList <Card> cardList,
                                           ArrayList <HashMap<String, String>> teaDataInfo) {
 
-        String tea = "Noo";
-        String teaImage = "http://chuangmi.my-place.us/Tea_Pictures/assam.jpg";
-        String teaContent = "haha";
-        String teaCost = "Absurd";
-        String teaCaloriesCount = "Yo Yo Yo BRUH ";
+        for(int i = 0; i < teaDataInfo.size(); i++) {
+            String tea = "";
+            String teaImage = "";
+            String teaContent = "";
+            String teaCost = "";
+            String teaCaloriesCount = "";
 
-        TeaCards teaCard = new TeaCards(getActivity(),  tea, teaImage, teaContent,
-                                        teaCost, teaCaloriesCount);
-        teaCard.setType(1);
+            for (HashMap.Entry<String, String> entries : teaDataInfo.get(i).entrySet()) {
 
-        cardList.add(teaCard);
+                if (entries.getKey().equals("teaName")) {
+                    tea = entries.getValue();
+                }
+
+                if (entries.getKey().equals("teaImage")) {
+                    teaImage = entries.getValue();
+                }
+
+                if (entries.getKey().equals("teaPrice")) {
+                    teaCost = entries.getValue();
+                }
+
+                if(entries.getKey().equals("teaCalories")){
+                    teaCaloriesCount = entries.getValue();
+
+                }
+
+                if(entries.getKey().equals("teaDesc")){
+                    teaContent = entries.getValue();
+                }
+
+            }
+
+            TeaCards teaCard = new TeaCards(getActivity(), tea, teaImage, teaContent,
+                    teaCost, teaCaloriesCount);
+            teaCard.setType(1);
+            cardList.add(teaCard);
+        }
 
         return cardList;
+    }
+
+    /*
+    * Custom Card section
+    */
+    class TeaSections extends CardSection {
+
+        public CharSequence mButtonTxt;
+
+        public TeaSections(int firstPosition, CharSequence title, CharSequence buttonText) {
+            super(firstPosition, title);
+            mButtonTxt = buttonText;
+        }
+
     }
 }

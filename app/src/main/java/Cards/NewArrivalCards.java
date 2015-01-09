@@ -114,12 +114,11 @@ public class NewArrivalCards extends CardWithList {
         public NewArrivalObject(Card parentCard) {
             super(parentCard);
         }
-    }
 
+    }
 
     @Override
     public int getType() {
-        //Very important with different inner layouts
         return 1;
     }
 }
