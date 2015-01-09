@@ -24,8 +24,6 @@ import Database.DatabaseConnector;
 import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
-import it.gmariotti.cardslib.library.prototypes.CardSection;
-import it.gmariotti.cardslib.library.prototypes.SectionedCardAdapter;
 
 public class TeaFragment extends Fragment {
 
