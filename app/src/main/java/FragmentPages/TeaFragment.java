@@ -2,8 +2,10 @@ package FragmentPages;
 
 import com.t_danbubbletea.bubbleteaapp.R;
 
-import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
+
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +18,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
-import java.util.List;
 
 import Cards.NewArrivalCards;
 import Cards.TeaCards;
+
 import Database.DatabaseConnector;
+
 import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
@@ -150,7 +153,6 @@ public class TeaFragment extends Fragment {
             String teaCaloriesCount = "";
 
             for (HashMap.Entry<String, String> entries : teaDataInfo.get(i).entrySet()) {
-
                 if (entries.getKey().equals("teaName")) {
                     tea = entries.getValue();
                 }
@@ -171,11 +173,22 @@ public class TeaFragment extends Fragment {
                 if(entries.getKey().equals("teaDesc")){
                     teaContent = entries.getValue();
                 }
-
             }
 
             TeaCards teaCard = new TeaCards(getActivity(), tea, teaImage, teaContent,
-                    teaCost, teaCaloriesCount);
+                                            teaCost, teaCaloriesCount);
+            // set on click listener for each card
+            teaCard.setOnClickListener(new Card.OnCardClickListener() {
+                @Override
+                public void onClick(Card card, View view) {
+                    FragmentManager fm = getFragmentManager();
+                    // replace current fragment with new fragment
+                    fm.beginTransaction().remove(new TeaFragment())
+                                         .replace(R.id.tea_frag_frame, new TeaDetailFragment())
+                                         .addToBackStack(null).commit();
+                }
+            });
+
             teaCard.setType(1); // important for different inner layout listview
             cardList.add(teaCard);
         }

@@ -17,4 +17,9 @@
         <item name="android:layout_marginRight">@dimen/card_content_outer_view_margin_right</item>
     </style>
 
+    <style name="customization_card_main_inner_title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_marginTop">2dp</item>
+    </style>
 </resources>

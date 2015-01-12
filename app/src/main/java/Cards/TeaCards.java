@@ -5,12 +5,12 @@ import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.view.Gravity;
+import android.app.FragmentManager;
 
+import FragmentPages.TeaDetailFragment;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
-import it.gmariotti.cardslib.library.internal.CardThumbnail;
 
 import com.squareup.picasso.Picasso;
 import com.t_danbubbletea.bubbleteaapp.R;
@@ -67,13 +67,6 @@ public class TeaCards extends Card {
         tInnerText.setButtonExpandVisible(false);
         addCardHeader(tInnerText);
 
-        //Set clickListener
-        setOnClickListener(new OnCardClickListener() {
-            @Override
-            public void onClick(Card card, View view) {
-                Toast.makeText(getContext(), "Click Listener card", Toast.LENGTH_LONG).show();
-            }
-        });
     }
 
     @Override

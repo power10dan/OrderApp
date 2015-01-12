@@ -36,7 +36,7 @@
         android:textColor="#BBB"
         android:lines="1"
         android:layout_below="@id/title"
-        android:layout_toRightOf= "@id/card_thumbnail_image"
+        android:layout_toLeftOf= "@id/card_thumbnail_image"
         android:layout_alignParentLeft="true"
         />
 
@@ -55,7 +55,7 @@
         android:id="@+id/calories_layout"
         android:textSize="18sp"
         android:layout_marginLeft="12dp"
-        android:textColor="#BBB"
+        android:textColor="@color/LightGrey"
         android:lines="1"
         />
 
@@ -68,7 +68,7 @@
         android:layout_below="@id/calories_layout"
         android:paddingRight="16dp"
         android:layout_alignParentLeft = "true"
-        android:textColor="#BBB"
+        android:textColor="@color/LightGrey"
         android:lines="2"
         />
 
@@ -79,7 +79,7 @@
         android:textSize="18sp"
         android:layout_below="@id/ingredients_layout"
         android:layout_marginLeft="12dp"
-        android:textColor="#BBB"
+        android:textColor="@color/LightGrey"
         android:layout_alignParentLeft = "true"
         android:lines="2"
         />

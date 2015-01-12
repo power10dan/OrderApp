@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import FragmentPages.*;
+
 public class TabPagerAdapter extends FragmentPagerAdapter {
 
     private final String[] TITLES = { "New Arrivals & Discounts", "About T-Dan Bubble Tea", "Contact Information"};
@@ -38,4 +39,10 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
         return null;
     }
 
+
+
+    @Override
+    public int getItemPosition(Object object) {
+        return POSITION_NONE;
+    }
 }

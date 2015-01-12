@@ -1,5 +1,7 @@
 package com.t_danbubbletea.bubbleteaapp;
 
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -10,6 +12,8 @@ import android.content.pm.ActivityInfo;
 
 import com.astuetz.PagerSlidingTabStrip;
 import Adapters.TabPagerAdapter;
+import FragmentPages.TeaDetailFragment;
+import FragmentPages.TeaFragment;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -22,7 +26,6 @@ public class MainActivity extends ActionBarActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // make screen orientation always portrait
         setContentView(R.layout.activity_main);
         setUpTabs();
-
     }
 
     private void setUpTabs(){

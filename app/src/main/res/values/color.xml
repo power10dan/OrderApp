@@ -6,4 +6,7 @@
     <color name="lightGrey">#CCDFD7</color>
     <color name="lightYellow">#D4D453</color>
     <color name="Red">#D40053</color>
+    <color name="LightGrey">#BBB</color>
+    <color name = "White">#FFFFFF</color>
+    <color name = "grey">#ddd</color>
 </resources>

@@ -5,4 +5,5 @@
     <dimen name="card_extras_birth_width">350dp</dimen>
     <dimen name="card_birth_width">450dp</dimen>
     <dimen name="carddemo_list_padding">8dp</dimen>
+    <dimen name="customize_grid_width">125dp</dimen>
 </resources>
