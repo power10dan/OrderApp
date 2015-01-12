@@ -9,4 +9,8 @@
     <color name="LightGrey">#BBB</color>
     <color name = "White">#FFFFFF</color>
     <color name = "grey">#ddd</color>
+    <color name = "lightPurple">#BAC3E4</color>
+    <color name = "black">#000000</color>
+    <color name = "androidLightGrey">#fafafa</color>
+    <color name = "androidDarkGrey">#EEEEEE</color>
 </resources>

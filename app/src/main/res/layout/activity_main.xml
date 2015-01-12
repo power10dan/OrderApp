@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    >
+>
 
     <com.astuetz.PagerSlidingTabStrip
         android:id="@+id/tabs"

@@ -4,8 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card="http://schemas.android.com/apk/res-auto"
     android:id="@+id/list_cardId"
-    android:layout_width="@dimen/customize_grid_width"
+    android:layout_width="@dimen/card_grid_width"
     android:layout_height="wrap_content"
     style="@style/grid_card"
+    android:background = "@color/androidDarkGrey"
     card:card_layout_resourceID="@layout/customized_card_layout"
 />

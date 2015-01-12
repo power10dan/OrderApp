@@ -7,14 +7,7 @@
     android:layout_height="96dp">
 
     <TextView
-        android:id="@+id/carddemo_myapps_main_inner_title"
-        style="@style/customization_card_main_inner_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    />
-
-    <TextView
-        android:id="@+id/carddemo_myapps_main_inner_secondaryTitle"
+        android:id="@+id/custom_card_title"
         style="@style/customization_card_main_inner_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

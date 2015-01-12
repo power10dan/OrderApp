@@ -1,9 +1,10 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- Tea Card Dimensions -->
+    <!-- Various Card Dimensions -->
     <dimen name="card_extras_birth_width">350dp</dimen>
     <dimen name="card_birth_width">450dp</dimen>
     <dimen name="carddemo_list_padding">8dp</dimen>
-    <dimen name="customize_grid_width">125dp</dimen>
+    <dimen name="grid_width">125dp</dimen>
+    <dimen name="card_grid_width">190dp</dimen>
 </resources>

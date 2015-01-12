@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "@color/White"
+    android:background = "@color/androidLightGrey"
 >
     <RelativeLayout
         android:layout_width="match_parent"
@@ -88,19 +88,28 @@
             android:layout_alignParentLeft="true"
             android:text = "Customize Your Tea"
         />
-
-        <it.gmariotti.cardslib.library.view.CardGridView
-            android:id="@+id/tea_customize_grid"
-            android:layout_below = "@id/tea_customize"
+        <FrameLayout
+            android:id="@+id/carddemo_listContainer"
+            android:paddingTop = "8dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:columnWidth="190dp"
-            android:numColumns="2"
-            android:verticalSpacing="3dp"
-            android:horizontalSpacing="2dp"
-            android:stretchMode="columnWidth"
-            android:gravity="center"
-            card:list_card_layout_resourceID="@layout/card_customize_grid"
-         />
+            android:layout_below = "@id/tea_customize">
+
+            <it.gmariotti.cardslib.library.view.CardGridView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:numColumns="2"
+                android:columnWidth="@dimen/grid_width"
+                android:paddingTop = "8dp"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="4dp"
+                android:stretchMode="columnWidth"
+                android:gravity="center"
+                card:list_card_layout_resourceID="@layout/card_customize_grid"
+                android:id="@+id/tea_customize_grid"/>
+        </FrameLayout>
+
     </RelativeLayout>
 </LinearLayout>
