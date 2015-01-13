@@ -13,5 +13,7 @@
     <color name = "black">#000000</color>
     <color name = "androidLightGrey">#fafafa</color>
     <color name = "androidDarkGrey">#EEEEEE</color>
-    <color name = "lavender">#BDAADF</color>
+    <color name = "teafrag_background">#E4E0E4</color>
+    <color name = "action_bar_background">#FF4800</color>
+    <color name = "text_standard_color">#7A7F7D</color>
 </resources>

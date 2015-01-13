@@ -27,7 +27,7 @@
                 android:paddingRight="@dimen/carddemo_list_padding"
                 card:list_card_layout_resourceID="@layout/native_list_card_thumbnail_layout"
                 style="@style/native_list_external"
-                android:background="@color/lavender"
+                android:background="#FFAB00"
             />
         </FrameLayout>
     </android.support.v4.widget.DrawerLayout>

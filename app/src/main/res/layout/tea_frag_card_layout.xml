@@ -22,7 +22,7 @@
         android:id="@+id/title"
         android:textSize="32dp"
         android:layout_marginLeft="9dp"
-        android:textColor="#BBB"
+        android:textColor="@color/text_standard_color"
         android:lines="1"
         android:layout_toLeftOf= "@id/card_thumbnail_image"
         />
@@ -33,7 +33,7 @@
         android:id="@+id/section_layout"
         android:textSize="18sp"
         android:layout_marginLeft="12dp"
-        android:textColor="#BBB"
+        android:textColor="@color/text_standard_color"
         android:lines="1"
         android:layout_below="@id/title"
         android:layout_toLeftOf= "@id/card_thumbnail_image"
@@ -55,7 +55,7 @@
         android:id="@+id/calories_layout"
         android:textSize="18sp"
         android:layout_marginLeft="12dp"
-        android:textColor="@color/LightGrey"
+        android:textColor="@color/text_standard_color"
         android:lines="1"
         />
 
@@ -68,7 +68,7 @@
         android:layout_below="@id/calories_layout"
         android:paddingRight="16dp"
         android:layout_alignParentLeft = "true"
-        android:textColor="@color/LightGrey"
+        android:textColor="@color/text_standard_color"
         android:lines="2"
         />
 

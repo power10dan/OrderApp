@@ -13,12 +13,10 @@
     <!-- ActionBar styles -->
     <style name="MyActionBar"
         parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/lightGreen</item>
-        <item name="android:actionBarDivider">@color/lightGreen</item>
-        <item name="android:backgroundStacked">@color/lightGreen</item>
-        <item name="android:backgroundSplit">@color/lightGreen</item>
+        <item name="android:background">@color/action_bar_background</item>
+
         <!-- Support library compatibility -->
-        <item name="background">@color/lightGreen</item>
+        <item name="background">@color/action_bar_background</item>
     </style>
 
 </resources>
