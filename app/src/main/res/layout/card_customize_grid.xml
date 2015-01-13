@@ -7,6 +7,6 @@
     android:layout_width="@dimen/card_grid_width"
     android:layout_height="wrap_content"
     style="@style/grid_card"
-    android:background = "@color/androidDarkGrey"
+    android:background = "@color/grey"
     card:card_layout_resourceID="@layout/customized_card_layout"
 />

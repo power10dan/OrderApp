@@ -13,4 +13,5 @@
     <color name = "black">#000000</color>
     <color name = "androidLightGrey">#fafafa</color>
     <color name = "androidDarkGrey">#EEEEEE</color>
+    <color name = "lavender">#BDAADF</color>
 </resources>

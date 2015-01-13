@@ -14,7 +14,9 @@
     <style name="MyActionBar"
         parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/lightGreen</item>
-
+        <item name="android:actionBarDivider">@color/lightGreen</item>
+        <item name="android:backgroundStacked">@color/lightGreen</item>
+        <item name="android:backgroundSplit">@color/lightGreen</item>
         <!-- Support library compatibility -->
         <item name="background">@color/lightGreen</item>
     </style>

@@ -71,6 +71,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             card:card_layout_resourceID="@layout/native_card_thumbnail_layout"
+            android:background = "#c0c0c0"
             android:layout_marginTop="12dp"
          />
 
@@ -108,7 +109,9 @@
                 android:stretchMode="columnWidth"
                 android:gravity="center"
                 card:list_card_layout_resourceID="@layout/card_customize_grid"
-                android:id="@+id/tea_customize_grid"/>
+                android:id="@+id/tea_customize_grid"
+            />
+
         </FrameLayout>
 
     </RelativeLayout>
