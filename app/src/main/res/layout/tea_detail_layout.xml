@@ -88,30 +88,16 @@
             android:layout_alignParentLeft="true"
             android:text = "Customize Your Tea"
         />
-        <FrameLayout
-            android:id="@+id/carddemo_listContainer"
-            android:paddingTop = "8dp"
+        <!-- Framelayout to display Fragments -->
+        <it.gmariotti.cardslib.library.view.CardListView
+            android:id="@+id/card_custom_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below = "@id/tea_customize">
-
-            <it.gmariotti.cardslib.library.view.CardGridView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:numColumns="2"
-                android:columnWidth="@dimen/grid_width"
-                android:paddingTop = "8dp"
-                android:verticalSpacing="10dp"
-                android:horizontalSpacing="4dp"
-                android:stretchMode="columnWidth"
-                android:gravity="center"
-                card:list_card_layout_resourceID="@layout/card_customize_grid"
-                android:id="@+id/tea_customize_grid"
-            />
-
-        </FrameLayout>
-
+            android:paddingLeft="8dp"
+            android:paddingRight="@dimen/carddemo_list_padding"
+            card:list_card_layout_resourceID="@layout/native_list_card_thumbnail_layout"
+            style="@style/native_list_external"
+            android:layout_below="@id/tea_customize"
+        />
     </RelativeLayout>
 </LinearLayout>
