@@ -74,20 +74,6 @@
             android:layout_marginTop="12dp"
          />
 
-        <TextView
-            android:id="@+id/tea_customize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/text_standard_color"
-            android:layout_toRightOf="@id/tea_image"
-            android:textSize="22dp"
-            android:layout_weight = "1"
-            android:paddingLeft = "15dp"
-            android:paddingTop = "8dp"
-            android:layout_below = "@id/description_card"
-            android:layout_alignParentLeft="true"
-            android:text = "Customize Your Tea"
-        />
         <!-- Framelayout to display Fragments -->
         <it.gmariotti.cardslib.library.view.CardListView
             android:id="@+id/card_custom_list"
@@ -97,7 +83,7 @@
             android:paddingRight="@dimen/carddemo_list_padding"
             card:list_card_layout_resourceID="@layout/native_list_card_thumbnail_layout"
             style="@style/native_list_external"
-            android:layout_below="@id/tea_customize"
+            android:layout_below="@id/description_card"
         />
     </RelativeLayout>
 </LinearLayout>

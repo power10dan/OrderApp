@@ -18,6 +18,7 @@ import Cards.CustomizeOptionCard;
 import Cards.CustomizeOptionCard;
 import Cards.TeaDescriptionCard;
 
+import Cards.TeaTopRaterCard;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardViewNative;
@@ -55,10 +56,8 @@ public class TeaDetailFragment extends Fragment {
 
         ArrayList<Card> customizeCards = new ArrayList<>();
 
-        for(int i = 0; i < 4; i++) {
-            CustomizeOptionCard customizeOptionCard = new CustomizeOptionCard(getActivity());
-            customizeCards.add(customizeOptionCard);
-        }
+        TeaTopRaterCard teaTopRaterCard = new TeaTopRaterCard(getActivity(), R.layout.tea_rater_card_layout);
+        customizeCards.add(teaTopRaterCard);
         CardArrayAdapter cardArrayAdapter = new CardArrayAdapter(getActivity(), customizeCards);
         CardListView cardListView = (CardListView) view.findViewById(R.id.card_custom_list);
         cardListView.setAdapter(cardArrayAdapter);
