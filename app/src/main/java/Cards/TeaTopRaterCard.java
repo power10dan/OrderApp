@@ -57,11 +57,15 @@ public class TeaTopRaterCard extends Card {
         mChart.setDrawYValues(false);
         mChart.setUnit(" People");
         mChart.setDrawBarShadow(false);
+        mChart.setTouchEnabled(false); // no magnification when touched on graph
+        mChart.setNoDataTextDescription("No Data Available.");
+
 
         mChart.setData(generateBarData(1, 20000, 5));
 
     }
-
+    // dummy data generator. In the future, the body of this method will be changed
+    // to be able to get user data from database.
     private BarData generateBarData(int dataSets, float range, int count) {
 
         ArrayList<BarDataSet> sets = new ArrayList<BarDataSet>();
@@ -71,6 +75,7 @@ public class TeaTopRaterCard extends Card {
             ArrayList<BarEntry> entries = new ArrayList<BarEntry>();
 
             for(int j = 0; j < count; j++) {
+                // dummy data generator.
                 entries.add(new BarEntry((float) (Math.random() * range) + range / 4, j));
             }
 
