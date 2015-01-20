@@ -11,19 +11,17 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/toolbar"
-        app:theme="@style/Theme.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background = "#FFBB00"
-
-     />
+        android:background = "#E77C2A"
+    />
 
     <com.astuetz.PagerSlidingTabStrip
         android:id="@+id/tabs"
         android:layout_width="fill_parent"
-        app:pstsDividerColor="#2D9382"
-        app:pstsIndicatorColor="@color/White"
-        android:layout_height="?attr/actionBarSize"
+        app:pstsIndicatorColor="#FFBB00"
+        android:layout_height="48dp"
         android:background = "?attr/colorPrimary"
      />
 

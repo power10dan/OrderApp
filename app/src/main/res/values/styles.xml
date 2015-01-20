@@ -8,8 +8,8 @@
     <style name="AppBaseTheme"
         parent="@style/Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@color/White</item> <!-- Start up background color -->
-        <item name="colorPrimary">#FFBB00</item> <!-- color of indicator on tabs -->
-        <item name="colorPrimaryDark">#FFBB00</item>
+        <item name="colorPrimary">#E77C2A</item> <!-- color of indicator on tabs -->
+        <item name="colorPrimaryDark">#E77C2A</item>
         <item name = "android:textColorPrimary">@android:color/white</item>
 
     </style>
