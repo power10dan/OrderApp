@@ -1,19 +1,31 @@
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
 >
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        app:theme="@style/Theme.AppCompat.Light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background = "#FFBB00"
+
+     />
 
     <com.astuetz.PagerSlidingTabStrip
         android:id="@+id/tabs"
         android:layout_width="fill_parent"
         app:pstsDividerColor="#2D9382"
-        app:pstsIndicatorColor="#FF33B5E6"
-        android:layout_height="48dip"
-    />
+        app:pstsIndicatorColor="@color/White"
+        android:layout_height="?attr/actionBarSize"
+        android:background = "?attr/colorPrimary"
+     />
 
     <android.support.v4.view.ViewPager
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,7 +33,7 @@
         android:layout_below="@+id/tabs"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-     >
-    </android.support.v4.view.ViewPager>
+        tools:context=".MainActivity"
+     />
 
-</RelativeLayout>
+</LinearLayout>

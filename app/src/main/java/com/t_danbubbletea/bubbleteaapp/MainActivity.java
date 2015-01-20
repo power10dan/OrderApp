@@ -1,7 +1,5 @@
 package com.t_danbubbletea.bubbleteaapp;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -9,11 +7,10 @@ import android.view.MenuItem;
 import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
 import android.content.pm.ActivityInfo;
+import android.support.v7.widget.Toolbar;
 
 import com.astuetz.PagerSlidingTabStrip;
 import Adapters.TabPagerAdapter;
-import FragmentPages.TeaDetailFragment;
-import FragmentPages.TeaFragment;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -25,13 +22,14 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // make screen orientation always portrait
         setContentView(R.layout.activity_main);
+        Toolbar tool = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(tool);
         setUpTabs();
     }
 
     private void setUpTabs(){
         // Bind the tabs to the ViewPager
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
-
         // Initialize the ViewPager and set an adapter
         pager = (ViewPager) findViewById(R.id.pager);
         adapter = new TabPagerAdapter(getSupportFragmentManager());

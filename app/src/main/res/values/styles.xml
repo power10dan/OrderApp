@@ -1,11 +1,17 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="CustomActionBar" parent="AppBaseTheme">
 
     </style>
-    <style name="withProgress" parent="@android:style/Widget.Holo.Light.ActionBar.TabView.Inverse">
-        <item name="android:padding">0dp</item>
+
+    <style name="AppBaseTheme"
+        parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/White</item> <!-- Start up background color -->
+        <item name="colorPrimary">#FFBB00</item> <!-- color of indicator on tabs -->
+        <item name="colorPrimaryDark">#FFBB00</item>
+        <item name = "android:textColorPrimary">@android:color/white</item>
+
     </style>
 
     <style name="Birth.card.content_outer_layout" parent="@style/card.content_outer_layout">
