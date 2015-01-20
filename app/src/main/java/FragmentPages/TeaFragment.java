@@ -137,6 +137,7 @@ public class TeaFragment extends Fragment {
 
         NewArrivalCards newArrivalCard = new NewArrivalCards(getActivity(), teaInfo);
         newArrivalCard.init();
+        newArrivalCard.setBackgroundColorResourceId(R.color.theme_color);
         cardList.add(newArrivalCard);
 
         return cardList;
@@ -177,6 +178,7 @@ public class TeaFragment extends Fragment {
 
             TeaCards teaCard = new TeaCards(getActivity(), tea, teaImage, teaContent,
                                             teaCost, teaCaloriesCount);
+            teaCard.setBackgroundColorResourceId(R.color.theme_color);
             // set on click listener for each card
             teaCard.setOnClickListener(new Card.OnCardClickListener() {
                 @Override
