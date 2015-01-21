@@ -59,7 +59,7 @@ public class TeaCards extends Card {
 
         tInnerText.setButtonExpandVisible(true);
         tInnerText.titleOfCard = teaTitle;
-        tInnerText.subTitleOfCard = "Tea Facts";
+        tInnerText.subTitleOfCard = "Gluten Free";
         tInnerText.teaPrice = teaCost;
         tInnerText.teaIngredients = teaDesc;
         tInnerText.teaCalories = teaCal;
@@ -72,13 +72,7 @@ public class TeaCards extends Card {
     @Override
     public void setupInnerViewElements(ViewGroup parent, View view) {
 
-        TextView title = (TextView) view.findViewById(R.id.card_main_inner_simple_title);
-        title.setText("Click me for more details");
-        title.setTextColor(mContext.getResources().getColor(R.color.lightBrown));
-        title.setGravity(Gravity.CENTER_VERTICAL);
-
     }
-
 
     @Override
     public int getType() {
@@ -108,16 +102,12 @@ public class TeaCards extends Card {
             TextView title = (TextView) view.findViewById(R.id.title);
             TextView subTitle = (TextView) view.findViewById(R.id.section_layout);
             TextView calories = (TextView) view.findViewById(R.id.calories_layout);
-            TextView ingredients = (TextView) view.findViewById(R.id.ingredients_layout);
             TextView price = (TextView)view.findViewById(R.id.price);
 
             Picasso.with(getContext()).load(mTeaImageURL).into(viewImage);
             title.setText(titleOfCard);
             subTitle.setText(subTitleOfCard);
             calories.setText("Calories: "+ teaCalories);
-            ingredients.setText("Gluten Free");
-            price.setText("Price: $" + teaPrice);
-
+            price.setText("$"+teaPrice);
         }
-
     }

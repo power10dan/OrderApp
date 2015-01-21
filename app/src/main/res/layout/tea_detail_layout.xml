@@ -74,8 +74,8 @@
             android:paddingTop="10dp"
             fancy:borderColor="#FFFFFF"
             fancy:borderWidth="1dp"
-            fancy:defaultColor="#FF0000"
-            fancy:focusColor="#FF0000"
+            fancy:defaultColor="#E77C2A"
+            fancy:focusColor="#F2BE00"
             fancy:iconPosition="left"
             fancy:radius="5dp"
             fancy:text="Customize Tea"
@@ -93,11 +93,10 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             card:card_layout_resourceID="@layout/native_card_thumbnail_layout"
-            android:background = "#c0c0c0"
+            android:background = "@color/theme_color"
             android:layout_marginTop="12dp"
          />
 
-        <!-- Framelayout to display Fragments -->
         <it.gmariotti.cardslib.library.view.CardListView
             android:id="@+id/card_custom_list"
             android:layout_width="match_parent"
@@ -107,6 +106,7 @@
             card:list_card_layout_resourceID="@layout/native_list_card_thumbnail_layout"
             style="@style/native_list_external"
             android:layout_below="@id/description_card"
+            android:background = "@color/theme_color"
         />
     </RelativeLayout>
 </LinearLayout>

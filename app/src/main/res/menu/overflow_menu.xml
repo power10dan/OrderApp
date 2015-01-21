@@ -9,6 +9,8 @@
         android:title="Random Action 1"
         android:orderInCategory="100"
         app:showAsAction="always"
+        android:textColor = "@color/black"
+
     />
 
     <item
@@ -16,6 +18,7 @@
         android:title="Random Action 2"
         android:orderInCategory="101"
         app:showAsAction="always"
+        android:textColor = "@color/black"
     />
 
     <item
@@ -23,5 +26,6 @@
         android:title="Random Action 3 "
         android:orderInCategory="102"
         app:showAsAction="always"
+        android:textColor = "@color/black"
     />
 </menu>

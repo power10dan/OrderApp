@@ -10,27 +10,39 @@ import com.t_danbubbletea.bubbleteaapp.R;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.Card;
 
-/**
- * Created by daniellin on 15/1/13.
- */
 public class CustomizeOptionCard extends Card {
 
-    public CustomizeOptionCard(Context context) {
+    String customOption;
+    String [] customChoice;
+
+    public CustomizeOptionCard(Context context, String option, String [] choice) {
         super(context);
-        initCustomCard();
+        customOption = option;
+        initCustomCard(customOption);
     }
 
-    public CustomizeOptionCard(Context context, int layout_Id){
+    public CustomizeOptionCard(Context context, int layout_Id, String option, String [] choice){
         super(context, layout_Id);
-        initCustomCard();
+        customOption = option;
+        customChoice = choice;
+        initCustomCard(customOption);
     }
 
-    private void initCustomCard(){
+    private void initCustomCard(String customOption){
+
         TeaCustomCardHeader tCustomText = new TeaCustomCardHeader(getContext(),
                                                                   R.layout.tea_custom_inner_layout);
         tCustomText.innerTitle = "Tea Customization Option 1";
-        tCustomText.innerSubTitle = "Click me to customize me! ";
+        tCustomText.innerSubTitle = "Click me to customize me!";
         addCardHeader(tCustomText);
+    }
+
+    @Override
+    public void setupInnerViewElements(ViewGroup viewGroup, View view){
+
+
+
+
     }
 
 }
