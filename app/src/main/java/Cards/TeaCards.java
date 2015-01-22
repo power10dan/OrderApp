@@ -70,11 +70,6 @@ public class TeaCards extends Card {
     }
 
     @Override
-    public void setupInnerViewElements(ViewGroup parent, View view) {
-
-    }
-
-    @Override
     public int getType() {
         //Very important with different inner layouts
         return 0;

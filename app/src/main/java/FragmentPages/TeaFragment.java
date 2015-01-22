@@ -176,7 +176,7 @@ public class TeaFragment extends Fragment {
                 }
             }
 
-            TeaCards teaCard = new TeaCards(getActivity(), tea, teaImage, teaContent,
+            TeaCards teaCard = new TeaCards(getActivity(),tea, teaImage, teaContent,
                                             teaCost, teaCaloriesCount);
             teaCard.setBackgroundColorResourceId(R.color.theme_color);
             // set on click listener for each card
