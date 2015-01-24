@@ -14,7 +14,7 @@
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background = "#E77C2A"
+        android:background = "@color/action_bar_background"
     />
 
     <com.astuetz.PagerSlidingTabStrip

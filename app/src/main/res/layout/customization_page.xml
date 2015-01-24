@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy = "http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background = "#F5F5ED"
+    android:orientation="vertical"
 >
+
     <it.gmariotti.cardslib.library.view.CardListView
         android:id="@+id/card_custom_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingLeft="8dp"
         android:paddingRight="@dimen/carddemo_list_padding"
         card:list_card_layout_resourceID="@layout/native_list_card_thumbnail_layout"
         style="@style/native_list_external"
-        android:background = "@color/theme_color"
+        android:background = "#F5F5ED"
     />
-</LinearLayout>
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/btn_submit_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        fancy:borderColor="#FFFFFF"
+        fancy:borderWidth="1dp"
+        fancy:defaultColor="#E77C2A"
+        fancy:focusColor="#F2BE00"
+        fancy:radius="5dp"
+        fancy:text="Submit Order"
+        fancy:textColor="#FFFFFF"
+        android:layout_below = "@id/card_custom_list"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

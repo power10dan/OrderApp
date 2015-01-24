@@ -14,7 +14,7 @@
     <color name = "androidLightGrey">#fafafa</color>
     <color name = "androidDarkGrey">#EEEEEE</color>
     <color name = "teafrag_background">#E4E0E4</color>
-    <color name = "action_bar_background">#FF4800</color>
+    <color name = "action_bar_background">#E77C2A</color>
     <color name = "text_standard_color">#7A7F7D</color>
     <color name = "theme_color">#FAFFFA</color>
 </resources>

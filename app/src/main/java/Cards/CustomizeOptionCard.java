@@ -4,11 +4,16 @@ import android.content.Context;
 
 import java.util.ArrayList;
 
+import android.content.DialogInterface;
+
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+
 import android.widget.TextView;
 
+import android.app.AlertDialog;
+
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.t_danbubbletea.bubbleteaapp.R;
 
 import it.gmariotti.cardslib.library.internal.CardHeader;
@@ -49,19 +54,31 @@ public class CustomizeOptionCard extends Card {
         final TextView userSelection = (TextView) view.findViewById(R.id.option_user_select);
         ArrayList<FancyButton> listOfButtons = new ArrayList<>();
         userSelection.setText(customChoice[0]); // default option, first element in choice array
-        // setup button on click listeners
-        for(int i = 0; i < customChoice.length; ++i) {
-            FancyButton buttonOptions = (FancyButton) view.findViewById(R.id.btn_1);
-            buttonOptions.setText(customChoice[i]);
-            // int i must be declared final if to be used in setOnClickListener
-            final int finalI = i;
-            buttonOptions.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    userSelection.setText(customChoice[finalI]);
-                }
-            });
-        }
+
+        // setup button on click listeners, declare final to be used in inner class
+        final FancyButton buttonOptions = (FancyButton) view.findViewById(R.id.btn_1);
+        // set text and on click events
+        buttonOptions.setText("Selections");
+        // int i must be declared final if to be used in setOnClickListener
+        buttonOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setUpChoiceDialog(customChoice, userSelection);
+            }
+        });
+
+    }
+
+    private void setUpChoiceDialog(final String [] choiceArray, final TextView displaySelection){
+        new MaterialDialog.Builder(getContext())
+                .title("Options")
+                .items(choiceArray)
+                .itemsCallback(new MaterialDialog.ListCallback(){
+                    @Override
+                    public void onSelection (MaterialDialog dialog, View view, int which, CharSequence text){
+                        displaySelection.setText(choiceArray[which]);
+                    }
+                }).show();
     }
 }
     class TeaCustomCardHeader extends CardHeader {

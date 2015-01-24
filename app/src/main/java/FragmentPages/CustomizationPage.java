@@ -1,8 +1,7 @@
 package FragmentPages;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map.Entry;
+
 
 import android.os.Bundle;
 
@@ -15,10 +14,13 @@ import android.view.View;
 import com.t_danbubbletea.bubbleteaapp.R;
 
 import Cards.CustomizeOptionCard;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
-import it.gmariotti.cardslib.library.internal.CardExpandableListAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
+
+import mehdi.sakout.fancybuttons.FancyButton;
 
 public class CustomizationPage extends Fragment {
 
@@ -28,6 +30,16 @@ public class CustomizationPage extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.customization_page, container, false);
         setupCustomOptionCard(rootView);
+        FancyButton submitButton = (FancyButton) rootView.findViewById(R.id.btn_submit_order);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Crouton.makeText(getActivity(), "Order submitted", Style.CONFIRM).show();
+            }
+        });
+
+
         return rootView;
     }
 

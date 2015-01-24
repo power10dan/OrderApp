@@ -16,10 +16,10 @@
         android:layout_alignParentLeft = "true"
         fancy:borderColor="#FFFFFF"
         fancy:borderWidth="1dp"
-        fancy:defaultColor="#7ab800"
-        fancy:focusColor="#9bd823"
+        fancy:defaultColor="@color/action_bar_background"
+        fancy:focusColor="#F2BE00"
         fancy:iconPosition="left"
         fancy:radius="5dp"
         fancy:textColor="#FFFFFF"
-        />
+    />
 </LinearLayout>
