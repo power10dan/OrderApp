@@ -1,6 +1,5 @@
 package Cards;
 
-import android.util.Log;
 import java.util.HashMap;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,7 @@ import java.util.List;
 import com.t_danbubbletea.bubbleteaapp.R;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.prototypes.CardWithList;
-import it.gmariotti.cardslib.library.internal.base.BaseCard;
+import it.gmariotti.cardslib.library.prototypes.LinearListView;
 import it.gmariotti.cardslib.library.internal.Card;
 import com.squareup.picasso.Picasso;
 
@@ -33,16 +32,6 @@ public class NewArrivalCards extends CardWithList {
     @Override
     protected CardHeader initCardHeader() {
         CardHeader cardHead = new CardHeader(getContext(), R.layout.new_arrival_header_layout);
-        // set up collapse  menu
-        cardHead.setPopupMenu(R.menu.overflow_menu, new CardHeader.OnClickCardHeaderPopupMenuListener() {
-
-            @Override
-            public void onMenuItemClick(BaseCard card, MenuItem item) {
-                Toast.makeText(getContext(), "Click on " + item.getTitle(), Toast.LENGTH_SHORT).show();
-            }
-
-        });
-
         cardHead.setTitle("New Arrivals");
 
         return cardHead;
@@ -62,6 +51,13 @@ public class NewArrivalCards extends CardWithList {
         for(int i = 0; i < teaInformation.size(); i++) {
 
             NewArrivalObject newArrivalData = new NewArrivalObject(this);
+            //OnClick Listener
+            newArrivalData.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(LinearListView parent, View view, int position, ListObject object) {
+
+                }
+            });
 
             for(HashMap.Entry<String,String> entries: teaInformation.get(i).entrySet()) {
 
@@ -114,7 +110,6 @@ public class NewArrivalCards extends CardWithList {
         public NewArrivalObject(Card parentCard) {
             super(parentCard);
         }
-
     }
 
     @Override

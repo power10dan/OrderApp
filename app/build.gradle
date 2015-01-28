@@ -34,6 +34,7 @@ dependencies {
     compile 'com.afollestad:material-dialogs:0.6.1.5'
     compile files('src/main/libs/mpandroidchartlibrary-1-7-4.jar')
     compile('de.keyboardsurfer.android.widget:crouton:1.8.5@aar')
+    compile 'com.github.navasmdc:MaterialDesign:1.+@aar'
 
 }
 

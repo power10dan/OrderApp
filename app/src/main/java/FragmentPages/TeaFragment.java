@@ -2,6 +2,7 @@ package FragmentPages;
 
 import com.t_danbubbletea.bubbleteaapp.R;
 
+import android.app.ProgressDialog;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
 
@@ -27,6 +28,7 @@ import Database.DatabaseConnector;
 import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
+import it.gmariotti.cardslib.library.cards.actions.IconSupplementalAction;
 
 public class TeaFragment extends Fragment {
 
@@ -62,9 +64,9 @@ public class TeaFragment extends Fragment {
 
     class GetTeaInfo extends AsyncTask<DatabaseConnector, Long, ArrayList<Card>> {
 
-       private ArrayList<HashMap<String, String>> newArrivalTeaData = new ArrayList<>();
-       private ArrayList<HashMap<String, String>> teaCardData = new ArrayList<>();
-       private ArrayList<Card> cards = new ArrayList<>();
+        private ArrayList<HashMap<String, String>> newArrivalTeaData = new ArrayList<>();
+        private ArrayList<HashMap<String, String>> teaCardData = new ArrayList<>();
+        private ArrayList<Card> cards = new ArrayList<>();
 
         @Override
         protected ArrayList<Card> doInBackground(DatabaseConnector... arg0) {
@@ -197,5 +199,6 @@ public class TeaFragment extends Fragment {
 
         return cardList;
     }
+
 
 }

@@ -1,17 +1,18 @@
 package Cards;
 
 import android.content.Context;
+
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.view.View;
+
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.view.Gravity;
-import android.app.FragmentManager;
 
-import FragmentPages.TeaDetailFragment;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 
+import com.gc.materialdesign.views.ButtonFlat;
 import com.squareup.picasso.Picasso;
 import com.t_danbubbletea.bubbleteaapp.R;
 
@@ -57,14 +58,12 @@ public class TeaCards extends Card {
 
         TeaCardInnerText tInnerText = new TeaCardInnerText(getContext(),R.layout.tea_frag_card_layout);
 
-        tInnerText.setButtonExpandVisible(true);
+        tInnerText.setButtonExpandVisible(false);
         tInnerText.titleOfCard = teaTitle;
-        tInnerText.subTitleOfCard = "Gluten Free";
+        tInnerText.subTitleOfCard = "Comes in 8, 16, and 32 oz";
         tInnerText.teaPrice = teaCost;
         tInnerText.teaIngredients = teaDesc;
-        tInnerText.teaCalories = teaCal;
         tInnerText.mTeaImageURL = teaImageSource;
-        tInnerText.setButtonExpandVisible(false);
         addCardHeader(tInnerText);
 
     }
@@ -82,7 +81,6 @@ public class TeaCards extends Card {
         String titleOfCard;
         String subTitleOfCard;
         String teaIngredients;
-        String teaCalories;
         String teaPrice;
         String mTeaImageURL;
 
@@ -96,13 +94,41 @@ public class TeaCards extends Card {
             ImageView viewImage = (ImageView)view.findViewById(R.id.card_thumbnail_image);
             TextView title = (TextView) view.findViewById(R.id.title);
             TextView subTitle = (TextView) view.findViewById(R.id.section_layout);
-            TextView calories = (TextView) view.findViewById(R.id.calories_layout);
-            TextView price = (TextView)view.findViewById(R.id.price);
+            final TextView price = (TextView) view.findViewById(R.id.price);
+            // buttons
+            ButtonFlat eightOunce = (ButtonFlat) view.findViewById(R.id.buttonflat);
+            ButtonFlat sixteenOunce = (ButtonFlat) view.findViewById(R.id.buttonflat2);
+            ButtonFlat thirtyTwoOunce = (ButtonFlat) view.findViewById(R.id.buttonflat3);
+
+            eightOunce.setText("8oz Price");
+            sixteenOunce.setText("16oz Price");
+            thirtyTwoOunce.setText("32oz Price");
+
+            eightOunce.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    price.setText("$"+teaPrice);
+
+                }
+            });
+
+            sixteenOunce.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    price.setText("$6.50");
+                }
+            });
+
+            thirtyTwoOunce.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    price.setText("$9.50");
+                }
+            });
 
             Picasso.with(getContext()).load(mTeaImageURL).into(viewImage);
             title.setText(titleOfCard);
             subTitle.setText(subTitleOfCard);
-            calories.setText("Calories: "+ teaCalories);
             price.setText("$"+teaPrice);
         }
     }

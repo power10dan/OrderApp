@@ -25,9 +25,9 @@
            android:id="@+id/name_tea"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:textColor="@android:color/holo_blue_dark"
+           android:textColor="@color/text_standard_color"
            android:layout_toRightOf="@+id/new_arrival_image"
-           android:textSize="14sp"
+           android:textSize="24dp"
            android:layout_centerVertical="true"
            android:layout_weight = "1"
            android:paddingLeft = "10dp"
@@ -37,24 +37,14 @@
            android:id="@+id/new_tea_price"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:gravity="center"
-           android:textColor="@android:color/holo_red_dark"
-           android:textSize="14sp"
-           android:layout_weight="1"
+           android:textColor="@color/action_bar_background"
+           android:textSize="24dp"
+           android:paddingLeft = "15dp"
            android:layout_centerVertical="true"
-           android:layout_toRightOf="@id/name_tea"
-           android:paddingLeft = "10dp"
-       />
-
-       <TextView
-           android:id="@+id/swipe_instruct"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_centerInParent="true"
-           android:paddingLeft="10dp"
-           android:textColor="@android:color/holo_blue_dark"
-           android:layout_toRightOf="@id/new_tea_price"
-        />
+           android:paddingRight = "15dp"
+           android:layout_below="@+id/name_tea"
+           android:layout_alignParentRight="true"
+           android:layout_alignParentEnd="true" />
 
         <View
             android:background="#ddd"
