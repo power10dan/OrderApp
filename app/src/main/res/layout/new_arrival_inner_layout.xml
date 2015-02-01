@@ -44,7 +44,23 @@
            android:paddingRight = "15dp"
            android:layout_below="@+id/name_tea"
            android:layout_alignParentRight="true"
-           android:layout_alignParentEnd="true" />
+           android:layout_alignParentEnd="true"
+        />
+
+        <TextView
+            android:id="@+id/time_range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_standard_color"
+            android:textStyle = "italic"
+            android:textSize="18dp"
+            android:paddingLeft = "15dp"
+            android:paddingRight = "15dp"
+            android:text = "Time : 5 to 10 minutes"
+            android:layout_above="@+id/view"
+            android:layout_alignRight="@+id/new_tea_price"
+            android:layout_alignEnd="@+id/new_tea_price"
+         />
 
         <View
             android:background="#ddd"
@@ -52,6 +68,7 @@
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_alignBottom="@+id/new_arrival_image"
+            android:id="@+id/view"
         />
 
     </RelativeLayout>

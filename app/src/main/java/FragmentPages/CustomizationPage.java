@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -24,6 +25,10 @@ import mehdi.sakout.fancybuttons.FancyButton;
 
 public class CustomizationPage extends Fragment {
 
+    String [] sizeOptions = {"8 Oz", "16 Oz", "32 Oz"};
+    String [] flavorOptions = {"Vanilla", "Chile", "Cool Beanary"};
+    String [] tapiocaBallsType = {"Green Pepper", "Flower", "Magic Beans"};
+    String [] options = {"Size","Flavor","Tapioca Ball Types"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,6 +41,7 @@ public class CustomizationPage extends Fragment {
             @Override
             public void onClick(View v) {
                 Crouton.makeText(getActivity(), "Order submitted", Style.CONFIRM).show();
+
             }
         });
 
@@ -46,12 +52,6 @@ public class CustomizationPage extends Fragment {
     private void setupCustomOptionCard(View view) {
 
         ArrayList<Card> customCard = new ArrayList();
-        // in future, we are changing these dummy data
-        // they will instead use hashmap to store data instead of an array
-        String [] sizeOptions = {"8 Oz", "16 Oz", "32 Oz"};
-        String [] flavorOptions = {"Vanilla", "Chile", "Cool Beanary"};
-        String [] tapiocaBallsType = {"Green Pepper", "Flower", "Magic Beans"};
-        String [] options = {"Size","Flavor","Tapioca Ball Types"};
 
         CustomizeOptionCard customizeSizeCard = new CustomizeOptionCard(getActivity(),
                                                                         R.layout.tea_customization_inner_layout,

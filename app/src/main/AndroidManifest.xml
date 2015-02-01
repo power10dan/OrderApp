@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.t_danbubbletea.bubbleteaapp"
 >
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/t_dan_icon"
@@ -16,15 +15,27 @@
         >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCoEFdpOhmg0ChuX_WEFOlLmVK4w9yj3sE"
+        />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="2"
+        />
     </application>
 
     <!-- Allow Image Loader to load from the internet -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <!-- Allow Image Loader to cache images on SD card -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- Allow Map To Obtain User Location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 </manifest>

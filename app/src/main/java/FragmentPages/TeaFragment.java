@@ -2,11 +2,11 @@ package FragmentPages;
 
 import com.t_danbubbletea.bubbleteaapp.R;
 
-import android.app.ProgressDialog;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
 
 import android.os.Bundle;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +28,6 @@ import Database.DatabaseConnector;
 import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
-import it.gmariotti.cardslib.library.cards.actions.IconSupplementalAction;
 
 public class TeaFragment extends Fragment {
 
@@ -41,15 +40,15 @@ public class TeaFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.tea_frag, container, false);
 
         ArrayList<Card> cards = new ArrayList<>();
+
         cardArrayAdapter = new CardArrayAdapter(getActivity(), cards);
-        cardArrayAdapter.setInnerViewTypeCount(2);
+        cardArrayAdapter.setInnerViewTypeCount(2); // two different cards, need to tell compiler that
 
         CardListView listView = (CardListView) rootView.findViewById(R.id.card_list);
 
         if (listView != null) {
             listView.setAdapter(cardArrayAdapter);
         }
-
         // get and parse the data
         try {
             new GetTeaInfo().execute(new DatabaseConnector()).get();
@@ -92,6 +91,7 @@ public class TeaFragment extends Fragment {
                         newTeaInfo.put("newTeaImage", newTeaImageURL);
                         newTeaInfo.put("newTeaPrice", newTeaPrice);
                         newTeaInfo.put("newTeaName", newTeaName);
+
                         newArrivalTeaData.add(newTeaInfo);
 
                     } else {
@@ -121,7 +121,6 @@ public class TeaFragment extends Fragment {
             cards = initNewArrivalCard(cards, newArrivalTeaData);
             cards = initTeaCard(cards, teaCardData);
 
-
             return cards;
         }
         // after finishing getting all tea data and putting them into cards,
@@ -149,6 +148,7 @@ public class TeaFragment extends Fragment {
                                           ArrayList <HashMap<String, String>> teaDataInfo) {
 
         for(int i = 0; i < teaDataInfo.size(); i++) {
+            // init variables
             String tea = "";
             String teaImage = "";
             String teaContent = "";
@@ -199,6 +199,4 @@ public class TeaFragment extends Fragment {
 
         return cardList;
     }
-
-
 }

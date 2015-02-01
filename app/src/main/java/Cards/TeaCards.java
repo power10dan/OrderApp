@@ -60,7 +60,7 @@ public class TeaCards extends Card {
 
         tInnerText.setButtonExpandVisible(false);
         tInnerText.titleOfCard = teaTitle;
-        tInnerText.subTitleOfCard = "Comes in 8, 16, and 32 oz";
+        tInnerText.subTitleOfCard = "Complete Time: 2 to 5 Minutes";
         tInnerText.teaPrice = teaCost;
         tInnerText.teaIngredients = teaDesc;
         tInnerText.mTeaImageURL = teaImageSource;
@@ -75,7 +75,6 @@ public class TeaCards extends Card {
     }
 
 }
-
     class TeaCardInnerText extends CardHeader {
 
         String titleOfCard;
@@ -93,7 +92,7 @@ public class TeaCards extends Card {
 
             ImageView viewImage = (ImageView)view.findViewById(R.id.card_thumbnail_image);
             TextView title = (TextView) view.findViewById(R.id.title);
-            TextView subTitle = (TextView) view.findViewById(R.id.section_layout);
+            TextView subTitle = (TextView) view.findViewById(R.id.time_prep);
             final TextView price = (TextView) view.findViewById(R.id.price);
             // buttons
             ButtonFlat eightOunce = (ButtonFlat) view.findViewById(R.id.buttonflat);
