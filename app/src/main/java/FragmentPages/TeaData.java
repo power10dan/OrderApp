@@ -13,11 +13,12 @@ public class TeaData {
 
     public TeaData(){}
 
-    public TeaData(int size, String flavor, String tapiocaType) {
+    public TeaData(int size, String flavor, String tapiocaType, int id) {
         super();
         this.size = size;
         this.flavor = flavor;
         this.tapiocaType = tapiocaType;
+        this.id = id;
     }
 
     public int getSize() {
@@ -32,6 +33,10 @@ public class TeaData {
         return this.flavor;
     }
 
+    public int getId() {
+        return this.id;
+    }
+
     public void setSize(int size) {
         this.size = size;
     }
@@ -42,6 +47,10 @@ public class TeaData {
 
     public void setFlavor(String flavor) {
         this.flavor = flavor;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     @Override
     public String toString() {
