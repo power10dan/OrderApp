@@ -24,6 +24,7 @@ public class CustomizeOptionCard extends Card {
 
     String customOption;
     String [] customChoice;
+    String userButtonSelection;
 
     public CustomizeOptionCard(Context context, String option, String [] choice) {
         super(context);
@@ -40,6 +41,10 @@ public class CustomizeOptionCard extends Card {
         initCustomCard(customOption);
     }
 
+    public String getUserSelection(){
+        return this.userButtonSelection;
+    }
+
     private void initCustomCard(String customOption){
 
         TeaCustomCardHeader tCustomText = new TeaCustomCardHeader(getContext(),
@@ -54,6 +59,7 @@ public class CustomizeOptionCard extends Card {
         final TextView userSelection = (TextView) view.findViewById(R.id.option_user_select);
         ArrayList<FancyButton> listOfButtons = new ArrayList<>();
         userSelection.setText(customChoice[0]); // default option, first element in choice array
+        userButtonSelection = customChoice[0];
 
         // setup button on click listeners, declare final to be used in inner class
         final FancyButton buttonOptions = (FancyButton) view.findViewById(R.id.btn_1);
@@ -77,6 +83,7 @@ public class CustomizeOptionCard extends Card {
                     @Override
                     public void onSelection (MaterialDialog dialog, View view, int which, CharSequence text){
                         displaySelection.setText(choiceArray[which]);
+                        userButtonSelection = choiceArray[which];
                     }
                 }).show();
     }
